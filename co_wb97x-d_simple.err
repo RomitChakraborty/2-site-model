@@ -1,0 +1,4 @@
+This is a multi-thread run using 16 threads
+/clusterfs/mhg/romitchak/qchem_gfmpes/exe/qcprog.exe .co_wb97x-d_simple.in20190319154536qchem.4270.qcin.1 /scratch/romitchak/co_wb97x-d_simple.in20190319154536/
+/clusterfs/mhg/romitchak/qchem_gfmpes/exe/qcprog.exe .co_wb97x-d_simple.in20190319154536qchem.4270.qcin.2 /scratch/romitchak/co_wb97x-d_simple.in20190319154536/
+Error: in the serial run

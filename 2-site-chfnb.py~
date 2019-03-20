@@ -1,0 +1,47 @@
+#! /usr/bin/env python
+
+import subprocess, re, os, time, random
+
+# Change basis and functional for a 2-site model
+
+
+s = ['co']
+mss = ['1']
+
+for state in s:
+    for ms in mss:
+        qc_simple = state + '_' + ms + '_simple.in'
+        f = open(qc_simple)
+        g = f.read()
+        f.close
+
+        qc_b3lyp = state + '_' + ms + '.in'
+        f_b3lyp = open(qc_b3lyp, 'w')
+        h = re.sub("6\-31g", "6-31+g(d,p)", g, flags = re.DOTALL)
+        f_b3lyp.write(h)
+        f_b3lyp.close()
+
+        qc_wb97xd = state + '_' + ms + '_wb97x-d.in'
+        f_wb97xd = open(qc_wb97xd, 'w')
+        i = re.sub("b3lyp", "wb97x-d", h, flags = re.DOTALL)
+        i = re.sub("dft\_d d3\_bj", " ", i, flags = re.DOTALL)
+        f_wb97xd.write(i)
+        f_wb97xd.close()
+
+        qc_wb97mv = state + '_' + ms + '_wb97m-v.in'
+        f_wb97mv = open(qc_wb97mv, 'w')
+        j = re.sub("wb97x\-d", "wb97m-v", i, flags = re.DOTALL)
+        f_wb97mv.write(j)
+        f_wb97mv.close()
+
+        qc_wb97xd_simple = state + '_' + ms + '_wb97x-d_simple.in'
+        f_wb97xd_simple = open(qc_wb97xd_simple, 'w')
+        k = re.sub("6\-31\+g\(d,p\)", "6-31g", i, flags = re.DOTALL)
+        f_wb97xd_simple.write(k)
+        f_wb97xd_simple.close()
+
+        qc_wb97mv_simple = state + '_' + ms + '_wb97m-v_simple.in'
+        f_wb97mv_simple = open(qc_wb97mv_simple, 'w')
+        l = re.sub("6\-31\+g\(d,p\)", "6-31g", j, flags = re.DOTALL)
+        f_wb97mv_simple.write(l)
+        f_wb97mv_simple.close()
