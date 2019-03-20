@@ -2,16 +2,8 @@
 
 import subprocess, re, os, time, random
 
-<<<<<<< HEAD
-# Change basis and functional for a 2-site model
-
-
-s = ['co']
-mss = ['1']
-=======
-s = ['3']
-mss = ['5', '3', '1']
->>>>>>> f4a5ab7b02f724dec55de6cf5c98259847d261b9
+s = ['1']
+mss = ['9', '7', '5', '3', '1']
 
 for state in s:
     for ms in mss:
